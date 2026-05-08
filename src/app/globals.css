@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Colors - Pinterest Palette */
+  --clr-primary: #e60023;
+  --clr-primary-pressed: #cc001f;
+  
+  --clr-canvas: #ffffff;
+  --clr-surface-soft: #fbfbf9;
+  --clr-surface-card: #f6f6f3;
+  --clr-secondary-bg: #e5e5e0;
+  --clr-secondary-pressed: #c8c8c1;
+  
+  --clr-hairline: #dadad3;
+  --clr-hairline-soft: #e5e5e0;
+  
+  /* Text */
+  --clr-ink: #000000;
+  --clr-ink-soft: #211922;
+  --clr-body: #33332e;
+  --clr-charcoal: #262622;
+  --clr-mute: #62625b;
+  --clr-ash: #91918c;
+  --clr-stone: #c8c8c1;
+  
+  /* Geometry */
+  --rounded-md: 16px;
+  --rounded-lg: 32px;
+  --rounded-full: 9999px;
+  
+  /* Spacing */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  --space-section: 100px;
+
+  /* Constraints */
+  --container-max: 1200px;
+  --container-narrow: 800px;
+
+  /* Typography Scale */
+  --fs-display-xl: 70px;
+  --fs-display-lg: 44px;
+  --fs-heading-xl: 28px;
+  --fs-heading-lg: 22px;
+  --fs-heading-md: 18px;
+  --fs-body-md: 16px;
+  --fs-body-sm: 14px;
+  --fs-caption: 12px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --fs-display-xl: 56px;
+    --fs-display-lg: 36px;
+    --fs-heading-xl: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --fs-display-xl: 40px;
+    --fs-display-lg: 28px;
+    --fs-heading-xl: 22px;
+    --fs-heading-lg: 20px;
+    --space-section: 40px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--clr-canvas);
+  color: var(--clr-body);
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* Typography Utilities */
+.display-xl {
+  font-size: var(--fs-display-xl);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  color: var(--clr-ink);
+}
+
+.heading-xl {
+  font-size: var(--fs-heading-xl);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+  color: var(--clr-ink);
+}
+
+.heading-lg {
+  font-size: var(--fs-heading-lg);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--clr-ink);
+}
+
+.body-strong {
+  font-weight: 600;
+  font-size: var(--fs-body-md);
+}
+
+.mute {
+  color: var(--clr-mute);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: var(--rounded-full); /* Primary nav sign up is pill, but others are 16px */
+  transition: background 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--clr-primary);
+  color: white;
+}
+
+.btn-primary:active {
+  background-color: var(--clr-primary-pressed);
+}
+
+.btn-secondary {
+  background-color: var(--clr-secondary-bg);
+  color: var(--clr-ink);
+  border-radius: var(--rounded-md);
+}
+
+.btn-secondary:active {
+  background-color: var(--clr-secondary-pressed);
+}
+
+.btn-md {
+  border-radius: var(--rounded-md);
+}
+
+/* Inputs */
+.text-input {
+  width: 100%;
+  padding: 11px 15px;
+  border: 1px solid var(--clr-ash);
+  border-radius: var(--rounded-md);
+  background: var(--clr-canvas);
+  font-size: var(--fs-body-md);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.text-input:focus {
+  border: 2px solid var(--clr-ink);
+  box-shadow: 0 0 0 4px #435ee544; /* Focus ring blue */
+}
+
+/* Section Rhythm */
+section {
+  padding: var(--space-section) 0;
+}
+
+.bg-soft {
+  background-color: var(--clr-surface-soft);
+}
+
+.bg-card {
+  background-color: var(--clr-surface-card);
+}
+
+/* Grain Overlay - Subtle */
+.grain-overlay::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
