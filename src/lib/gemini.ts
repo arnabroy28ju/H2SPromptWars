@@ -9,7 +9,7 @@ export const generateTravelPlan = async (data: {
   interests: string[];
   constraints: string;
 }) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const prompt = `
     You are an expert travel planner. Generate a detailed travel itinerary specifically tailored for a ${data.budget} budget.
